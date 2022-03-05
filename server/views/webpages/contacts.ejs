@@ -1,0 +1,79 @@
+<!-- Name: Harsh Patel 
+Student ID: 301175911 -->
+
+<html>
+    <head>
+        <title>contacts</title>
+        <link rel='stylesheet' href='/Content/app.css' />
+    <link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/@fortawesome/fontawesome-free/css/all.min.css' />
+    </head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <img src = "/Images/logo.png" alt="logo" height="150" width="150">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Harsh Patel</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home"><i class="fas fa-laptop-house"></i> Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/about"><i class="fas fa-info"></i> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/services"><i class="fab fa-servicestack"></i> Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/projects"><i class="fas fa-tasks"></i> Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/contacts"><i class="fas fa-address-book"></i> Contacts</a>
+              </li>  
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="contact-list"><i class="fas fa-address-book"></i> Contact List</a>
+              </li>  
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+
+
+<form>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" ><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" ><br>
+  <label for="email">Enter your email:</label><br>
+  <input type="email" id="email" name="email"><br>
+  <label for="phone">Enter a phone number:</label><br>
+  <input type="tel" id="phone" name="phone"><br>
+
+  <div>Your message</div>
+  <textarea id="w3review" name="w3review" rows="3" cols="50">
+    </textarea><br><br>
+
+    <div class="text-centre text-md-left">
+      <a class="btn btn-primary" href="/home"onclick="document.getElementById('form').submit();">SUBMIT</a>
+  </div>
+</form>
+
+
+<script src="/Scripts/app.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.css"></script>
+<script src="/jquery/dist/jquery.min.css"></script>
+
+</body>
+<footer>
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+      <h6 class="navbar-text" href="#">&copy All Rights reserved by Harsh Patel</h6>
+    </nav>
+  </footer>
+</html>
