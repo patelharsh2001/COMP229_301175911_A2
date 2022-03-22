@@ -1,9 +1,4 @@
-/*
-This is index.js file
-Name : Harsh Patel
-Student ID: 301175911
-Date : 4th March 2022 
-*/
+
 
 var connect = require('connect');
  var http = require('http');

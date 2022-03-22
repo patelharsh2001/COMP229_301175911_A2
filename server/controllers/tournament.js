@@ -1,26 +1,21 @@
-/*
-This is contactlist.js file
-Name : Harsh Patel
-Student ID: 301175911
-Date : 4th March 2022 
-*/
+
 
 let express = require('express');
 let mongoose = require('mongoose');
-const { findById } = require('../model/contactlist');
+const { findById } = require('../model/tournament');
 let router = express.Router();
 
-let Contact_List = require('../model/contactlist');
+let Tournament_List = require('../model/tournament');
 
-module.exports.displayContactList = (req,res,next)=>{
-    Contact_List.find((err,contactlist)=>{
+module.exports.displayTournamentList = (req,res,next)=>{
+    Tournament_List.find((err,tournament)=>{
     
         if(err){
             return console.error(err);
         }
         else{
-           // console.log(contactsList);
-           res.render('list/contactlist.ejs',{title: 'Contact List', ContactList : contactlist,
+           
+           res.render('list/tournament.ejs',{title: 'Tournament List', TournamentList : tournament,
             displayName : req.user?req.user.displayName : ''
         });
         }
@@ -29,17 +24,18 @@ module.exports.displayContactList = (req,res,next)=>{
     }
 
     module.exports.displayAddPage = (req,res,next) => {
-        res.render('list/add.ejs', {title: 'Add a Contact'});
+        res.render('list/add.ejs', {title: 'Add a Tournament'});
     }
 
     module.exports.processAddPage = (req,res,next)=>{
-        let newList = Contact_List({
+        let newList = Tournament_List({
             "name": req.body.name,
-            "phonenumber": req.body.phonenumber,
-            "email": req.body.email
+            "Location": req.body.location,
+            "EntryFee": req.body.entryfee,
+            "StartDate":req.body.startdate
         });
 
-        Contact_List.create(newList,(err, Contact_List)=>{
+        Tournament_List.create(newList,(err, Tournament_List)=>{
             if(err)
             {
                 console.log(err);
@@ -47,7 +43,7 @@ module.exports.displayContactList = (req,res,next)=>{
             }
             else
             {
-                res.redirect('/contact-list');
+                res.redirect('/tournament-list');
             }
 
 
@@ -57,14 +53,14 @@ module.exports.displayContactList = (req,res,next)=>{
     module.exports.displayEditPage = (req,res,next)=>{
 
         let id= req.params.id;
-        Contact_List.findById(id,(err,ContactListToEdit)=>{
+        Tournament_List.findById(id,(err,TournamentListToEdit)=>{
             if(err){
                 console.log(err);
                 res.end(err);
 
             }
             else{
-                res.render('list/edit', {title: 'Edit a contactlist', contactlist:ContactListToEdit, displayName : req.user?req.user.displayName : ''});
+                res.render('list/edit', {title: 'Edit a tournament', tournament:TournamentListToEdit, displayName : req.user?req.user.displayName : ''});
             }
 
         });
@@ -73,33 +69,34 @@ module.exports.displayContactList = (req,res,next)=>{
 
         let id= req.params.id;
 
-    let updatedList = Contact_List({  
+    let updatedList = Tournament_List({  
         "_id": id,
         "name": req.body.name,
-        "phonenumber": req.body.phonenumber,
-        "email": req.body.email
+        "Location": req.body.location,
+        "EntryFee": req.body.entryfee,
+        "StartDate":req.body.startdate
     });
 
-    Contact_List.updateOne({_id:id},updatedList, (err)=>{
+    Tournament_List.updateOne({_id:id},updatedList, (err)=>{
         if(err){
             console.log(err);
             res.end(err);
         }
         else{
-            res.redirect('/contact-list');
+            res.redirect('/tournament-list');
         }
     });
     }
 
     module.exports.performDelete = (req, res, next) => {
         let id = req.params.id;
-        Contact_List.remove({_id:id}, (err) =>{
+        Tournament_List.remove({_id:id}, (err) =>{
            if(err){
                console.log(err);
                res.end(err);
            }
            else{
-               res.redirect('/contact-list');
+               res.redirect('/tournament-list');
            }
         });
     }

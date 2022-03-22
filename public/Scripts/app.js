@@ -18,7 +18,7 @@ const { event } = require("jquery");
                 if(!confirm("Do you want to continue?"))
                 {
                     event.preventDefault();
-                    window.location.assign('/contact-list');
+                    window.location.assign('/tournament-list');
                 }
             });
         }

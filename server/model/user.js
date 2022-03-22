@@ -1,9 +1,4 @@
-/*
-This is user.js file
-Name : Harsh Patel
-Student ID: 301175911
-Date : 4th March 2022 
-*/
+
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');
 

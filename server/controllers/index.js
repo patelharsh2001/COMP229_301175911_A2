@@ -1,9 +1,4 @@
-/*
-This is index.js file
-Name : Harsh Patel
-Student ID: 301175911
-Date : 4th March 2022 
-*/
+
 
 let express = require('express');
 let router = express.Router();
@@ -22,21 +17,17 @@ module.exports.displayHomePage = (req, res, next) => {
     res.render('../views/webpages/home', {title: 'Home', displayName: req.user ? req.user.displayName : ''});
 }
 
-module.exports.displayAboutPage = (req, res, next) => {
-    res.render('../views/webpages/about', { title: 'About', displayName: req.user ? req.user.displayName : ''});
+module.exports.displayCompletePage = (req, res, next) => {
+    res.render('../views/webpages/complete', { title: 'Complete Tournament', displayName: req.user ? req.user.displayName : ''});
 }
 
-module.exports.displayProductsPage = (req, res, next) => {
-    res.render('../views/webpages/projects', { title: 'Projects', displayName: req.user ? req.user.displayName : ''});
+
+
+module.exports.displayActivePage = (req, res, next) => {
+    res.render('../views/webpages/active', { title: 'Active Tournament', displayName: req.user ? req.user.displayName : ''});
 }
 
-module.exports.displayServicesPage = (req, res, next) => {
-    res.render('../views/webpages/services', { title: 'Services', displayName: req.user ? req.user.displayName : ''});
-}
 
-module.exports.displayContactPage = (req, res, next) => {
-    res.render('../views/webpages/contacts', { title: 'Contact', displayName: req.user ? req.user.displayName : ''});
-}
 
 module.exports.displayLoginPage = (req, res, next) => {
     // check if the user is already logged in
@@ -96,7 +87,7 @@ module.exports.processLoginPage = (req, res, next) => {
             }, token: authToken});
             */
 
-            return res.redirect('/contact-list');
+            return res.redirect('/tournament-list');
         });
     })(req, res, next);
 }
@@ -157,7 +148,7 @@ module.exports.processRegisterPage = (req, res, next) => {
             */
 
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('contact-list')
+                res.redirect('tournament-list')
             });
         }
     });

@@ -1,9 +1,4 @@
-/*
-This is index.js file
-Name : Harsh Patel
-Student ID: 301175911
-Date : 4th March 2022 
-*/
+
 
 let express = require('express');
 let router = express.Router();
@@ -16,17 +11,14 @@ router.get('/', indexController.displayHomePage);
 /* GET home page. */
 router.get('/home', indexController.displayHomePage);
 
-/* GET About Us page. */
-router.get('/about', indexController.displayAboutPage);
+/* GET Complete page. */
+router.get('/complete', indexController.displayCompletePage);
 
-/* GET Products page. */
-router.get('/projects', indexController.displayProductsPage);
 
-/* GET Services page. */
-router.get('/services', indexController.displayServicesPage);
+/* GET active page. */
+router.get('/active', indexController.displayActivePage);
 
-/* GET Contact Us page. */
-router.get('/contacts', indexController.displayContactPage);
+
 
 /* GET Route for displaying the Login page */
 router.get('/login', indexController.displayLoginPage);

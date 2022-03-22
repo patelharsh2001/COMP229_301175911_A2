@@ -12,16 +12,17 @@
         <div class="offset-md-1 col-md-11">
             <h1><%= title %></h1>
 
-                <a href="/contact-list/add" class="btn btn-primary" role="button">
-                <i class="fas fa-plus-circle"></i> Add a Contact</a>
+                <a href="/tournament-list/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> Add a Tournament</a>
             
             <br>
             <table class="table table-bordered table-striped table-hover">
                 <!-- Header Row-->
                 <tr class="d-flex">
                         <th class="text-center col-2">Name</th>
-                        <th class="text-center col-2">Phone Number</th>
-                        <th class="text-center col-4">Email</th>
+                        <th class="text-center col-2">Start Date</th>
+                        <th class="text-center col-2">Location</th>
+                        <th class="text-center col-3">Entry Fee</th>
                         <th class="text-center col-1"></th>
                         <th class="text-center col-1"></th>
                        
@@ -30,18 +31,19 @@
 
                 <!-- Repeatable Template Row -->
 
-                <% for(let count = 0; count < ContactList.length; count++) { %>
+                <% for(let count = 0; count < TournamentList.length; count++) { %>
                     <tr class="d-flex">
-                            <td class="text-center col-2"><%= ContactList[count].name %></td>
-                            <td class="text-center col-2"><%= ContactList[count].phonenumber %></td>
-                            <td class="text-center col-4"><%= ContactList[count].email %></td>
+                            <td class="text-center col-2"><%= TournamentList[count].name %></td>
+                            <td class="text-center col-2"><%= TournamentList[count].startdate %></td>
+                            <td class="text-center col-2"><%= TournamentList[count].location %></td>
+                            <td class="text-center col-3"><%= TournamentList[count].entryfee %></td>
                                         
                             <td class="text-center col-1">
-                                <a href="/contact-list/edit/<%= ContactList[count]._id %>" class="btn btn-primary btn-sm">
+                                <a href="/tournament-list/edit/<%= TournamentList[count]._id %>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Edit</a>
                             </td>
                             <td class="text-center col-1">
-                                <a href="/contact-list/delete/<%= ContactList[count]._id %>" class="btn btn-danger btn-sm">
+                                <a href="/tournament-list/delete/<%= TournamentList[count]._id %>" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash-alt"></i> Delete</a>
                             </td>
                             

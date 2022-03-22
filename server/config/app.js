@@ -1,9 +1,3 @@
-/*
-This is app.js file
-Name : Harsh Patel
-Student ID: 301175911
-Date : 4th March 2022 
-*/
 
 
 //3rd party modules
@@ -37,7 +31,7 @@ mongoDB.once('open',()=>{
 
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let contactlistRouter = require('../routes/contactlist')
+let tournamentRouter = require('../routes/tournament')
 
 let app = express();
 
@@ -77,7 +71,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/contact-list',contactlistRouter);
+app.use('/tournament-list',tournamentRouter);
 
 
 
